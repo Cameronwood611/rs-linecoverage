@@ -62,14 +62,12 @@ fn add_line(line: Line, mut node: Node) -> Node {
     }
 }
 
-fn line_coverage(lines: Vec<Line>) -> i32 {
+fn line_coverage(lines: Vec<Line>) {
 
     let mut root = Node::new(NodeValue::Str("empty"), None, None);
     for line in lines {
         root = add_line(line, root);
     }
-    traverse_sum(root)
-
 }
 
 fn main() {
@@ -78,7 +76,5 @@ fn main() {
     let l3 = Line { x: 6, y: 15 };
 
     let lines = vec![l1, l2, l3];
-    let area = line_coverage(lines);
-    println!("Area of lines: {}", area);
-    println!("Hello, world!");
+    line_coverage(lines);
 }
